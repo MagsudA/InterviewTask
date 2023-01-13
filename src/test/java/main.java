@@ -5,6 +5,9 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
+
+import static Utilities.Driver.driver;
 
 
  /*   Go to https://www.amazon.com
@@ -156,22 +159,20 @@ public class main {
     @Test(priority = 7)
     public void addItemToCart() {
         pf.addToCardBTN.click();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     //Empty Cart.
     @Test(priority = 8)
     public void emptyCard(){
         pf.goToCard.click();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         pf.deleteBtn.click();
 
         // Validate “Your item was removed from shopping cart” message.*/
         Assert.assertTrue(pf.message.getText().contains("was removed from Shopping Cart."));
 
     }
-
-
-
-
 
         @AfterClass
         public void tearDown () {
