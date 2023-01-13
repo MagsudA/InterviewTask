@@ -51,13 +51,11 @@ public class main {
 
         // I didnt search with uppercase or separately each word because there is written only contain “gel pens“.
 
-        List<String> listResult = new ArrayList<>();
 
         int countPresent = 0;
         int countNotPresent = 0;
 
         for (WebElement webElement : pf.webElements) {
-            listResult.add(webElement.getText());
 
             if (webElement.getText().contains("gel pens")) {
                 countPresent++;
@@ -76,13 +74,11 @@ public class main {
     @Test(priority = 3)
     public void CheckSearchResultHasPen() {
 
-        List<String> listResult = new ArrayList<>();
 
         int penCountPresent = 0;
         int penCountNotPresent = 0;
 
         for (WebElement webElement : pf.webElements) {
-            listResult.add(webElement.getText());
 
             if (webElement.getText().contains("Pen")) {
                 penCountPresent++;
@@ -118,7 +114,7 @@ public class main {
             if (Double.parseDouble(mergeList) < minPrice) {
                 minPrice = Double.parseDouble(mergeList);
             }
-         //   System.out.println(mergeList);
+
         }
         System.out.println("Minimum price is : " + minPrice);
 
@@ -178,9 +174,7 @@ public class main {
 
 
         @AfterClass
-        public void tearDown () throws InterruptedException {
-
-            Thread.sleep(3000);
+        public void tearDown () {
         Driver.closeDriver();
         }
     }
